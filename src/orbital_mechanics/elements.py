@@ -3,46 +3,9 @@ from numpy import pi
 
 from .units import u
 from .utils import require_dimension
+from .orbit import Orbit
 
-def semi_major_axis(r_apo: Quantity, r_peri: Quantity) -> Quantity:
-    """Calculate the semi-major axis of an orbit.
-
-    Parameters
-    ----------
-    r_apo : Quantity
-        Distance from the center of the central body to the apoapsis.
-    r_peri : Quantity
-        Distance from the center of the central body to the periapsis.
-
-    Returns
-    -------
-    Quantity
-        Semi-major axis of the orbit.
-    """
-    require_dimension(r_apo, u.m, "r_apo")
-    require_dimension(r_peri, u.m, "r_peri")
-    return (r_apo + r_peri) / 2
-
-def eccentricity(r_apo: Quantity, r_peri: Quantity) -> float:
-    """Calculate the eccentricity of an orbit.
-
-    Parameters
-    ----------
-    r_apo : Quantity
-        Distance from the center of the central body to the apoapsis.
-    r_peri : Quantity
-        Distance from the center of the central body to the periapsis.
-
-    Returns
-    -------
-    float
-        Eccentricity of the orbit.
-    """
-    require_dimension(r_apo, u.m, "r_apo")
-    require_dimension(r_peri, u.m, "r_peri")
-    return (r_apo - r_peri) / (r_apo + r_peri)
-
-def vis_viva(mu: Quantity, r: Quantity, a: Quantity) -> Quantity:
+def vis_viva(mu: Quantity, orbit: Orbit, r: Quantity) -> Quantity:
     """Calculate the orbital speed using the vis-viva equation.
 
     Parameters
@@ -61,8 +24,7 @@ def vis_viva(mu: Quantity, r: Quantity, a: Quantity) -> Quantity:
     """
     require_dimension(mu, u.m**3 / u.s**2, "mu")
     require_dimension(r, u.m, "r")
-    require_dimension(a, u.m, "a")
-    return (mu * (2 / r - 1 / a)) ** 0.5
+    return (mu * (2 / r - 1 / orbit.semi_major_axis)) ** 0.5
 
 def circular_orbit_speed(mu: Quantity, r: Quantity) -> Quantity:
     """Calculate the orbital speed for a circular orbit.
@@ -102,7 +64,7 @@ def escape_velocity(mu: Quantity, r: Quantity) -> Quantity:
     require_dimension(r, u.m, "r")
     return (2 * mu / r) ** 0.5
 
-def orbital_period(mu: Quantity, a: Quantity) -> Quantity:
+def orbital_period(mu: Quantity, orbit: Orbit) -> Quantity:
     """Calculate the orbital period of an orbit.
 
     Parameters
@@ -118,5 +80,4 @@ def orbital_period(mu: Quantity, a: Quantity) -> Quantity:
         Orbital period of the orbit.
     """
     require_dimension(mu, u.m**3 / u.s**2, "mu")
-    require_dimension(a, u.m, "a")
-    return 2 * pi * (a**3 / mu) ** 0.5
+    return 2 * pi * (orbit.semi_major_axis**3 / mu) ** 0.5

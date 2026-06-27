@@ -5,6 +5,7 @@ from .bodies import Body
 from .solar_system import MERCURY, VENUS, EARTH, MOON, MARS, JUPITER, SATURN, URANUS, NEPTUNE
 from .maneuvers import BurnVector
 from .elements import semi_major_axis, eccentricity, vis_viva, circular_orbit_speed, escape_velocity, orbital_period
+from .orbit import Orbit
 
 __all__ = [
     "u",
@@ -14,5 +15,6 @@ __all__ = [
     "Body",
     "MERCURY", "VENUS", "EARTH", "MOON", "MARS", "JUPITER", "SATURN", "URANUS", "NEPTUNE",
     "BurnVector",
-    "semi_major_axis", "eccentricity", "vis_viva", "circular_orbit_speed", "escape_velocity", "orbital_period"
+    "semi_major_axis", "eccentricity", "vis_viva", "circular_orbit_speed", "escape_velocity", "orbital_period",
+    "Orbit"
 ]
