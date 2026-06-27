@@ -2,7 +2,7 @@ from pint import Quantity
 from numpy import pi
 
 from .units import u
-from .utils import check_quantity
+from .utils import require_dimension
 
 def semi_major_axis(r_apo: Quantity, r_peri: Quantity) -> Quantity:
     """Calculate the semi-major axis of an orbit.
@@ -19,8 +19,8 @@ def semi_major_axis(r_apo: Quantity, r_peri: Quantity) -> Quantity:
     Quantity
         Semi-major axis of the orbit.
     """
-    check_quantity(r_apo, u.m, "r_apo")
-    check_quantity(r_peri, u.m, "r_peri")
+    require_dimension(r_apo, u.m, "r_apo")
+    require_dimension(r_peri, u.m, "r_peri")
     return (r_apo + r_peri) / 2
 
 def eccentricity(r_apo: Quantity, r_peri: Quantity) -> float:
@@ -38,8 +38,8 @@ def eccentricity(r_apo: Quantity, r_peri: Quantity) -> float:
     float
         Eccentricity of the orbit.
     """
-    check_quantity(r_apo, u.m, "r_apo")
-    check_quantity(r_peri, u.m, "r_peri")
+    require_dimension(r_apo, u.m, "r_apo")
+    require_dimension(r_peri, u.m, "r_peri")
     return (r_apo - r_peri) / (r_apo + r_peri)
 
 def vis_viva(mu: Quantity, r: Quantity, a: Quantity) -> Quantity:
@@ -59,9 +59,9 @@ def vis_viva(mu: Quantity, r: Quantity, a: Quantity) -> Quantity:
     Quantity
         Orbital speed at distance r.
     """
-    check_quantity(mu, u.m**3 / u.s**2, "mu")
-    check_quantity(r, u.m, "r")
-    check_quantity(a, u.m, "a")
+    require_dimension(mu, u.m**3 / u.s**2, "mu")
+    require_dimension(r, u.m, "r")
+    require_dimension(a, u.m, "a")
     return (mu * (2 / r - 1 / a)) ** 0.5
 
 def circular_orbit_speed(mu: Quantity, r: Quantity) -> Quantity:
@@ -79,8 +79,8 @@ def circular_orbit_speed(mu: Quantity, r: Quantity) -> Quantity:
     Quantity
         Orbital speed for a circular orbit at radius r.
     """
-    check_quantity(mu, u.m**3 / u.s**2, "mu")
-    check_quantity(r, u.m, "r")
+    require_dimension(mu, u.m**3 / u.s**2, "mu")
+    require_dimension(r, u.m, "r")
     return (mu / r) ** 0.5
 
 def escape_velocity(mu: Quantity, r: Quantity) -> Quantity:
@@ -98,8 +98,8 @@ def escape_velocity(mu: Quantity, r: Quantity) -> Quantity:
     Quantity
         Escape velocity at distance r.
     """
-    check_quantity(mu, u.m**3 / u.s**2, "mu")
-    check_quantity(r, u.m, "r")
+    require_dimension(mu, u.m**3 / u.s**2, "mu")
+    require_dimension(r, u.m, "r")
     return (2 * mu / r) ** 0.5
 
 def orbital_period(mu: Quantity, a: Quantity) -> Quantity:
@@ -117,6 +117,6 @@ def orbital_period(mu: Quantity, a: Quantity) -> Quantity:
     Quantity
         Orbital period of the orbit.
     """
-    check_quantity(mu, u.m**3 / u.s**2, "mu")
-    check_quantity(a, u.m, "a")
+    require_dimension(mu, u.m**3 / u.s**2, "mu")
+    require_dimension(a, u.m, "a")
     return 2 * pi * (a**3 / mu) ** 0.5
