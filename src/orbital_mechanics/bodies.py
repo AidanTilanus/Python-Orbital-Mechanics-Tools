@@ -23,7 +23,7 @@ class Body:
         return G * self.mass
     
     @property
-    def geostationary_orbit_radius(self) -> Quantity:
+    def synchronous_orbit_radius(self) -> Quantity:
         if self.rotation_period == 0 * u.s:
             raise ValueError("Body has no rotation period, cannot calculate geostationary orbit radius.")
         return (self.gravitational_parameter * self.rotation_period**2 / (4 * pi**2))**(1/3)
