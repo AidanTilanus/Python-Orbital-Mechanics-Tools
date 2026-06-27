@@ -1,3 +1,4 @@
+from .units import u
 from .constants import G, GRAVITANTIONAL_CONSTANT, G0, standard_gravity
 from .rockets import Stage, Rocket
 from .bodies import Body
@@ -6,6 +7,7 @@ from .maneuvers import BurnVector
 from .elements import semi_major_axis, eccentricity, vis_viva, circular_orbit_speed, escape_velocity, orbital_period
 
 __all__ = [
+    "u",
     "G",  "GRAVITANTIONAL_CONSTANT",
     "G0", "standard_gravity",
     "Stage", "Rocket",
