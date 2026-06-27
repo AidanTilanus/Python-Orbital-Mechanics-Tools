@@ -11,10 +11,10 @@ class Orbit:
         self.apo  = apo
         self.peri = peri
         
-        @property
-        def semi_major_axis(self) -> Quantity:
-            return (apo + peri) / 2
-        
-        @property
-        def eccentricity(self) -> Quantity:
-            return (apo - peri) / (apo + peri)
+    @property
+    def semi_major_axis(self) -> Quantity:
+        return (self.apo + self.peri) / 2
+    
+    @property
+    def eccentricity(self) -> Quantity:
+        return (self.apo - self.peri) / (self.apo + self.peri)
