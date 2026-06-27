@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orbital-mechanics"
+version = "0.0.1"
+authors = [{ name = "Aidan Tilanus" }]
+description = "Tools for orbital mechanics math"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+dependencies = [
+    "pint",
+    "numpy",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
