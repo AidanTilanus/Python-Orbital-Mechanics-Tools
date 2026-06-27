@@ -1,6 +1,6 @@
-from pint import UnitRegistry, Quantity
-u = UnitRegistry()
+from pint import Quantity
 
+from .units import u
 from .constants import G
 from .utils import require_dimension
 

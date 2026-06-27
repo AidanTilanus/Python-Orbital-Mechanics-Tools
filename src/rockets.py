@@ -1,7 +1,7 @@
 import numpy as np
-from pint import UnitRegistry, Quantity
-u = UnitRegistry()
+from pint import Quantity
 
+from .units import u
 from .constants import G0
 from .utils import require_dimension
 

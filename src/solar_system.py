@@ -1,7 +1,4 @@
-from pint import UnitRegistry, Quantity
-u = UnitRegistry()
-
-
+from .units import u
 from .bodies import Body
 
 MERCURY = Body(mass=3.3011e23 * u.kg, radius=2439.7 * u.km)

@@ -1,5 +1,6 @@
-from pint import UnitRegistry, Quantity
-u = UnitRegistry()
+from pint import Quantity
+
+from .units import u
 
 #SECTION Define Physical Constants
 

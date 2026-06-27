@@ -1,6 +1,4 @@
-from pint import UnitRegistry, Quantity
-u = UnitRegistry()
-
+from .units import u
 from .utils import require_dimension
 
 class BurnVector:
@@ -16,14 +14,14 @@ class BurnVector:
     def __repr__(self) -> str:
         return f"BurnVector(prograde={self._prograde}, normal={self._normal}, radial={self._radial})"
     
-    def __add__(self, other: BurnVector) -> BurnVector:
+    def __add__(self, other: "BurnVector") -> "BurnVector":
         return BurnVector(
             prograde=self._prograde + other._prograde,
             normal=self._normal + other._normal,
             radial=self._radial + other._radial
         )
     
-    def __sub__(self, other: BurnVector) -> BurnVector:
+    def __sub__(self, other: "BurnVector") -> "BurnVector":
         return BurnVector(
             prograde=self._prograde - other._prograde,
             normal=self._normal - other._normal,
