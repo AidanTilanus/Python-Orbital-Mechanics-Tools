@@ -1,3 +1,5 @@
+from pint import Quantity
+
 from .units import u
 from .utils import require_dimension
 
