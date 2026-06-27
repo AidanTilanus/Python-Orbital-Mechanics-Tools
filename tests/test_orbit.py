@@ -2,8 +2,8 @@ import orbital_mechanics as om
 
 def test_orbit_creation():
     orbit = om.Orbit(100 * om.u.km, 80 * om.u.km)
-    assert orbit.apo == 100
-    assert orbit.peri == 80
+    assert orbit.apo == 100 * om.u.km
+    assert orbit.peri == 80 * om.u.km
 
 def test_body_semi_major_axis():
     orbit = om.Orbit(100 * om.u.km, 80 * om.u.km)
