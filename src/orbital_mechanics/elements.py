@@ -63,21 +63,3 @@ def escape_velocity(mu: Quantity, r: Quantity) -> Quantity:
     require_dimension(mu, u.m**3 / u.s**2, "mu")
     require_dimension(r, u.m, "r")
     return (2 * mu / r) ** 0.5
-
-def orbital_period(mu: Quantity, orbit: Orbit) -> Quantity:
-    """Calculate the orbital period of an orbit.
-
-    Parameters
-    ----------
-    mu : Quantity
-        Standard gravitational parameter of the central body.
-    a : Quantity
-        Semi-major axis of the orbit.
-
-    Returns
-    -------
-    Quantity
-        Orbital period of the orbit.
-    """
-    require_dimension(mu, u.m**3 / u.s**2, "mu")
-    return 2 * pi * (orbit.semi_major_axis**3 / mu) ** 0.5
