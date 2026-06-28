@@ -1,6 +1,8 @@
 from .units import u
 from .bodies import Body
 
+SUN = Body(mass=1.9885e30 * u.kg, radius=695_700 * u.km,
+           rotation_period=2_164_320 * u.s)   # 25.05 days (sidereal, equatorial)
 MERCURY = Body(mass=3.3011e23 * u.kg, radius=2439.7 * u.km,
                 rotation_period=5_067_031.68 * u.s)   # 58.6462 days
 VENUS   = Body(mass=4.8675e24 * u.kg, radius=6051.8 * u.km,
