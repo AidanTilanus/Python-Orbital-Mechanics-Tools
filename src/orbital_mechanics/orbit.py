@@ -1,9 +1,10 @@
 from numpy import pi
 
 class Orbit:
-    def __init__(self, r_apo: float, r_peri: float):
+    def __init__(self, r_apo: float, r_peri: float, inclination: float = 0.0):
         self.r_apo  = r_apo
         self.r_peri = r_peri
+        self.inclination = inclination
         
     @property
     def semi_major_axis(self):

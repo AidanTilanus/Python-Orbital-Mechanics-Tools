@@ -12,3 +12,7 @@ def test_body_semi_major_axis():
 def test_body_eccentricity():
     orbit = om.Orbit(100, 80)
     assert orbit.eccentricity == (100 - 80) / (100 + 80)
+
+def test_body_inclination():
+    orbit = om.Orbit(100, 80, inclination=30)
+    assert orbit.inclination == 30
