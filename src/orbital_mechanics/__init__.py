@@ -1,4 +1,3 @@
-from .units import u
 from .constants import G, GRAVITANTIONAL_CONSTANT, G0, standard_gravity
 from .rockets import Stage, Rocket
 from .bodies import Body
@@ -8,7 +7,6 @@ from .elements import vis_viva, circular_orbit_speed, escape_velocity
 from .orbit import Orbit
 
 __all__ = [
-    "u",
     "G",  "GRAVITANTIONAL_CONSTANT",
     "G0", "standard_gravity",
     "Stage", "Rocket",

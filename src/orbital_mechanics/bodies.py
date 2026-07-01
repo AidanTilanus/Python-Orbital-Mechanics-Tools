@@ -1,16 +1,9 @@
-from pint import Quantity
 from numpy import pi
 
-from .units import u
 from .constants import G
-from .utils import require_dimension
 
 class Body:
-    def __init__(self, mass: Quantity, radius: Quantity, rotation_period: Quantity = 0 * u.s):
-        require_dimension(mass, "[mass]", "mass")
-        require_dimension(radius, "[length]", "radius")
-        require_dimension(rotation_period, "[time]", "rotation_period")
-
+    def __init__(self, mass: float, radius: float, rotation_period: float = 0):
         self.mass = mass
         self.radius = radius
         self.rotation_period = rotation_period
@@ -19,15 +12,14 @@ class Body:
         return f"Body(mass={self.mass}, radius={self.radius})"
     
     @property
-    def gravitational_parameter(self) -> Quantity:
+    def gravitational_parameter(self):
         return G * self.mass
     
     @property
-    def synchronous_orbit_radius(self) -> Quantity:
-        if self.rotation_period == 0 * u.s:
+    def synchronous_orbit_radius(self):
+        if self.rotation_period == 0:
             raise ValueError("Body has no rotation period, cannot calculate geostationary orbit radius.")
         return (self.gravitational_parameter * self.rotation_period**2 / (4 * pi**2))**(1/3)
     
-    def altitude_to_r(self, altitude: Quantity) -> Quantity:
-        require_dimension(altitude, "[length]", "altitude")
+    def altitude_to_r(self, altitude: float):
         return self.radius + altitude

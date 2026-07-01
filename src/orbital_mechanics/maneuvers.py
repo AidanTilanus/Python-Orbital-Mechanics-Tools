@@ -1,14 +1,5 @@
-from pint import Quantity
-
-from .units import u
-from .utils import require_dimension
-
 class BurnVector:
-    def __init__(self, prograde=0.0 * u.m / u.s, normal=0.0 * u.m / u.s, radial=0.0 * u.m / u.s):
-        require_dimension(prograde, "[length] / [time]", "prograde")
-        require_dimension(normal, "[length] / [time]", "normal")
-        require_dimension(radial, "[length] / [time]", "radial")
-
+    def __init__(self, prograde=0.0, normal=0.0, radial=0.0):
         self._prograde = prograde
         self._normal = normal
         self._radial = radial
