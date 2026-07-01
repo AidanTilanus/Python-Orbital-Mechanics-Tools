@@ -21,7 +21,7 @@ class BurnVector:
             radial=self._radial - other._radial
         )
     
-    def total_dv(self) -> Quantity:
+    def total_dv(self):
         return (self._prograde**2 + self._normal**2 + self._radial**2)**0.5
     
     #SECTION Getters and Setters for BurnVector Components    
