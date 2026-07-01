@@ -1,11 +1,9 @@
 from pint import Quantity
 
-from .units import u
-
 #SECTION Define Physical Constants
 
-G: Quantity = 6.6743e-11 * (u.m**3 / (u.kg * u.s**2))
+G: float = 6.6743e-11
 GRAVITANTIONAL_CONSTANT: Quantity = G
 
-G0: Quantity = 9.80665 * (u.m / u.s**2)
+G0: float = 9.80665
 standard_gravity = G0
