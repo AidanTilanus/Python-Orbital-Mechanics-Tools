@@ -1,5 +1,3 @@
-from pint import Quantity
-
 #SECTION Define Physical Constants
 
 G: float = 6.6743e-11

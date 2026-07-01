@@ -12,4 +12,4 @@ def test_gravitational_parameter():
 def test_altitude_to_r():
     body = om.Body(mass=100, radius=10)
     r = body.altitude_to_r(5)
-    assert r.to("m").magnitude == 15
+    assert r == 15
