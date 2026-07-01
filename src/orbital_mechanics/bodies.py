@@ -22,4 +22,12 @@ class Body:
         return (self.gravitational_parameter * self.rotation_period**2 / (4 * pi**2))**(1/3)
     
     def altitude_to_r(self, altitude: float):
+        """ Converts altitude above the surface to the distance from the center of the body.
+        
+        Args:
+            altitude (float): Altitude above the surface in meters.
+        
+        Returns:
+            float: Distance from the center of the body in meters.
+        """
         return self.radius + altitude
