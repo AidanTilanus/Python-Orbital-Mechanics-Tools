@@ -1,8 +1,3 @@
-from pint import Quantity
-from numpy import pi
-
-from .units import u
-from .utils import require_dimension
 from .orbit import Orbit
 
 def vis_viva(mu, orbit: Orbit, r):
